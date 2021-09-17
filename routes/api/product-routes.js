@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
   Product.findAll({
     include: [
       {
-        model: Category,
-        attributes: ['category_name']
+        model: Category
       }
     ]
   })
@@ -29,7 +28,12 @@ router.get('/:id', (req, res) => {
   Product.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    include: [
+      {
+        model: Category
+      }
+    ]
   })
     .then(dbProductData => {
       if (!dbProductData) {
@@ -60,7 +64,7 @@ router.post('/', (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
-    tagIds:req.body.tagIds
+    category_id: req.body.category_id
   })
     .then(dbProductData => res.json(dbProductData))
     .catch(err => {
