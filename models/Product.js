@@ -33,8 +33,16 @@ Product.init(
       defaultValue: 10,
       validate: {
         //insert validation here
-      }
+      },
     },
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'category',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
