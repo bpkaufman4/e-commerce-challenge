@@ -17,7 +17,7 @@ Create, remove, update, and delete the different types of data stored in the dat
 
 ## Contributing
 
-Contribute using the same [github repository](https://github.com/bpkaufman4/e-commerce-challenge)
+Contribute using the same [github repository](https://github.com/bpkaufman4/e-commerce-challenge).
 
 ## Walkthrough
-
+Here is a [walkthrough video](https://youtu.be/TogryzAeB4E) of the application.
