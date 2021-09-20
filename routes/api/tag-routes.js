@@ -5,7 +5,15 @@ const { Tag, Product, ProductTag, Category } = require('../../models');
 
 router.get('/', (req, res) => {
   // find all tags
-  Tag.findAll()
+  Tag.findAll({
+    include: [
+      {
+        model: Product,
+        through: Tag,
+        as: 'product_tags'
+      }
+    ]
+  })
     .then(dbTagData => res.json(dbTagData))
     .catch(err => {
       console.log(err);
@@ -19,7 +27,14 @@ router.get('/:id', (req, res) => {
   Tag.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    include: [
+      {
+        model: Product,
+        through: Tag,
+        as: 'product_tags'
+      }
+    ]
   })
     .then(dbTagData => {
       if (!dbTagData) {
